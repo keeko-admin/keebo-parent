@@ -1,0 +1,3 @@
+2018-11-20 10:27:19.975  WARN 9392 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-11-20 10:29:32.636  WARN 9392 --- [http-nio-8080-exec-1] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/] in DispatcherServlet with name 'dispatcherServlet'
+2018-11-20 10:30:04.783  WARN 9392 --- [http-nio-8080-exec-7] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/WEB-INF/view/index] in DispatcherServlet with name 'dispatcherServlet'

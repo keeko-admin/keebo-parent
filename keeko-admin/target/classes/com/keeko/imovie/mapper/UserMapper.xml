@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.keeko.imovie.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.keeko.imovie.entity.User">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="agency_id" jdbcType="VARCHAR" property="agencyId" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="is_open" jdbcType="CHAR" property="isOpen" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+    <result column="open_time" jdbcType="TIMESTAMP" property="openTime" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="located_class" jdbcType="VARCHAR" property="locatedClass" />
+    <result column="post" jdbcType="CHAR" property="post" />
+    <result column="head_portrait" jdbcType="VARCHAR" property="headPortrait" />
+    <result column="platform" jdbcType="VARCHAR" property="platform" />
+    <result column="language_pattern" jdbcType="CHAR" property="languagePattern" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.keeko.imovie.entity.User" useGeneratedKeys="true">
+    insert into sys_user (name, login_name, agency_id, 
+      password, is_open, email, 
+      create_by, create_date, update_by, 
+      update_date, del_flag, open_time, 
+      role_id, located_class, post, 
+      head_portrait, platform, language_pattern
+      )
+    values (#{name,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, #{agencyId,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{isOpen,jdbcType=CHAR}, #{email,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=CHAR}, #{openTime,jdbcType=TIMESTAMP}, 
+      #{roleId,jdbcType=VARCHAR}, #{locatedClass,jdbcType=VARCHAR}, #{post,jdbcType=CHAR}, 
+      #{headPortrait,jdbcType=VARCHAR}, #{platform,jdbcType=VARCHAR}, #{languagePattern,jdbcType=CHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.keeko.imovie.entity.User">
+    update sys_user
+    set name = #{name,jdbcType=VARCHAR},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      agency_id = #{agencyId,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      is_open = #{isOpen,jdbcType=CHAR},
+      email = #{email,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      open_time = #{openTime,jdbcType=TIMESTAMP},
+      role_id = #{roleId,jdbcType=VARCHAR},
+      located_class = #{locatedClass,jdbcType=VARCHAR},
+      post = #{post,jdbcType=CHAR},
+      head_portrait = #{headPortrait,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=VARCHAR},
+      language_pattern = #{languagePattern,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, name, login_name, agency_id, password, is_open, email, create_by, create_date, 
+    update_by, update_date, del_flag, open_time, role_id, located_class, post, head_portrait, 
+    platform, language_pattern
+    from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, login_name, agency_id, password, is_open, email, create_by, create_date, 
+    update_by, update_date, del_flag, open_time, role_id, located_class, post, head_portrait, 
+    platform, language_pattern
+    from sys_user
+  </select>
+</mapper>
